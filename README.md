@@ -1,11 +1,13 @@
 # Filesystem Visualizer
 
-Filesystem Visualizer (name pending) visualizes filesystems in your web browser. 
+Filesystem Visualizer (name pending) visualizes toy filesystems in your web browser. 
 This is very WIP, and this readme will change often -- the project is in its infancy.
 
 The plan is to include implementations of these filesystems:
 - [File Allocation Table](wiki-fat)
 - [Log-structured file system](wiki-lfs)
+
+You'll be able to simulate reads/writes and run traces.
 
 [fat]: https://en.wikipedia.org/wiki/File_Allocation_Table
 [lfs]: https://en.wikipedia.org/wiki/Log-structured_file_system
