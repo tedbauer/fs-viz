@@ -1,4 +1,12 @@
-let num_blocks = 10
+module IntToBool = Set.Make (
+  struct
+    type t = int
+    let compare = Pervasives.compare
+  end
+)
+type block_store = IntToBool.t
+
+let num_blocks = 256
 
 let bsd_width = 600.
 let bsd_height = 100.
@@ -18,12 +26,18 @@ let create_canvas () =
   ctx##stroke;
   Dom.appendChild main canvas
 
-let draw_blocks () =
+let draw_blocks bs =
   let block_width = bsd_width /. (float_of_int num_blocks) in
   for b = 0 to num_blocks do
     let x1 = float_of_int b *. block_width in
-    ctx##rect (x1 +. block_width) 0. bsd_width bsd_height;
-    ctx##stroke;
+        (if IntToBool.mem b bs then
+          (ctx##beginPath;
+          ctx##rect (x1 +. block_width) 0. block_width bsd_height;
+          ctx##fill)
+        else
+          ctx##beginPath;
+          ctx##rect (x1 +. block_width) 0. bsd_width bsd_height;
+          ctx##stroke)
   done
 
 let create_title () =
@@ -34,4 +48,4 @@ let create_title () =
 let _ =
   create_title ();
   create_canvas ();
-  draw_blocks ()
+  draw_blocks (let open IntToBool in (add 5 empty));
