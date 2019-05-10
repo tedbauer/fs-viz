@@ -1,5 +1,7 @@
 type block_store
 
+val fs_create: unit -> block_store
+
 (* [fs_read bs i] is data [d] that's contained in block [i]. *)
 val fs_read: block_store -> int -> int
 

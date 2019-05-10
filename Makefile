@@ -1,2 +1,2 @@
 open:
-	dune build src/main.bc.js && open index.html
+	dune build bin/viz.bc.js && open web/index.html

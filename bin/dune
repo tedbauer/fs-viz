@@ -1,0 +1,4 @@
+(executable
+  (name viz)
+	(libraries viz_backend)
+	(preprocess (pps js_of_ocaml-ppx)))
