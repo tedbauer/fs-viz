@@ -18,6 +18,9 @@ fs-viz requires:
 - Jane Street's Core library
 - Js_of_ocaml
 
+Right now, you can just type `make` to build and open a static webpage with the
+visualizer.
+
 ## Adding Your Own Filesystem Implementation
 You will be able to add your own filesystem implementations, written in
 [OCaml](ocaml-site). You'll need to match a signature that will tentatively
